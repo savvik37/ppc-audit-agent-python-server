@@ -10,12 +10,16 @@ requires-python = ">=3.11"
 dependencies = [
     "dotenv (>=0.9.9,<0.10.0)",
     "python-pptx (>=1.0.2,<2.0.0)",
-    "openai (>=1.109.1,<2.0.0)"
+    "openai (>=1.109.1,<2.0.0)",
+    "fastapi (>=0.117.1,<0.118.0)",
+    "uvicorn (>=0.37.0,<0.38.0)"
 ]
 
 [tool.poetry]
 packages = [{include = "ppcauditagent", from = "src"}]
 
+[tool.poetry.scripts]
+start = "ppcauditagent.main:start"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
