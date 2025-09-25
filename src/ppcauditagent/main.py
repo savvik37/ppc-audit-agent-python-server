@@ -3,6 +3,10 @@ from typing import Union
 import uvicorn
 from fastapi import FastAPI
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
 app = FastAPI()
 
 
@@ -17,4 +21,4 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 def start():
     """Launched with `poetry run start` at root level"""
-    uvicorn.run("ppcauditagent.main:app", host="0.0.0.0", port=8080, reload=True)
+    uvicorn.run("ppcauditagent.main:app", host="0.0.0.0", port=os.environ['PORT'], reload=True)
